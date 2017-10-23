@@ -6,8 +6,8 @@ target 'JiraTracker' do
   use_frameworks!
 
   # Pods for JiraTracker
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
-pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
+    pod 'Firebase/Core'
 
 end

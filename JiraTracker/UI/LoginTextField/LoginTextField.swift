@@ -12,7 +12,7 @@ import UIKit
 
 class LoginTextField : UIView {
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var txtField: UITextField!
+    @IBOutlet var textField: UITextField!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -15,7 +15,7 @@
 		6DD85DA01F9A737A00ADE8CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DD85D9F1F9A737A00ADE8CC /* Assets.xcassets */; };
 		6DD85DA31F9A737A00ADE8CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DD85DA11F9A737A00ADE8CC /* LaunchScreen.storyboard */; };
 		6DD85DAC1F9A824C00ADE8CC /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DD85DAB1F9A824C00ADE8CC /* Registration.storyboard */; };
-		6DD85DAE1F9A854800ADE8CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD85DAD1F9A854800ADE8CC /* LoginViewController.swift */; };
+		6DD85DAE1F9A854800ADE8CC /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD85DAD1F9A854800ADE8CC /* RegistrationViewController.swift */; };
 		6DD85DB11F9A883000ADE8CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DD85DB01F9A883000ADE8CC /* GoogleService-Info.plist */; };
 		6DD85DB31F9A8A7300ADE8CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD85DB21F9A8A7300ADE8CC /* Constants.swift */; };
 		6DD85DB61F9A8CE800ADE8CC /* LoginTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DD85DB51F9A8CE800ADE8CC /* LoginTextField.xib */; };
@@ -34,7 +34,7 @@
 		6DD85DA21F9A737A00ADE8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6DD85DA41F9A737A00ADE8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DD85DAB1F9A824C00ADE8CC /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
-		6DD85DAD1F9A854800ADE8CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6DD85DAD1F9A854800ADE8CC /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		6DD85DB01F9A883000ADE8CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6DD85DB21F9A8A7300ADE8CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6DD85DB51F9A8CE800ADE8CC /* LoginTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTextField.xib; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		F48DE1801F9E8702005E3727 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6DD85DAD1F9A854800ADE8CC /* LoginViewController.swift */,
+				6DD85DAD1F9A854800ADE8CC /* RegistrationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			files = (
 				6D38F94C1F9E801200EFFEB5 /* CustomProgressButton.swift in Sources */,
 				6DD85DB31F9A8A7300ADE8CC /* Constants.swift in Sources */,
-				6DD85DAE1F9A854800ADE8CC /* LoginViewController.swift in Sources */,
+				6DD85DAE1F9A854800ADE8CC /* RegistrationViewController.swift in Sources */,
 				6DD85D9E1F9A737A00ADE8CC /* JiraTracker.xcdatamodeld in Sources */,
 				6DD85DB81F9A8E5800ADE8CC /* LoginTextField.swift in Sources */,
 				6DD85D961F9A737A00ADE8CC /* AppDelegate.swift in Sources */,
