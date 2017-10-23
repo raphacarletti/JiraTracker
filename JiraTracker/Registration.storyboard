@@ -25,36 +25,61 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5q-tC-gXi">
                                 <rect key="frame" x="16" y="168" width="288" height="39.5"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="28"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jira Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idh-Mh-1AK">
                                 <rect key="frame" x="115" y="225" width="90" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wv-PC-vR7" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wv-PC-vR7" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
                                 <rect key="frame" x="40" y="261" width="240" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="JXx-nV-rDs"/>
+                                    <constraint firstAttribute="height" constant="30" id="liE-QG-GpO"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJo-t7-BFr" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJo-t7-BFr" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
                                 <rect key="frame" x="40" y="299" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="13d-O4-7m8"/>
+                                    <constraint firstAttribute="width" constant="240" id="R7x-7K-2U8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VL7-cu-muz" customClass="CustomProgressButton" customModule="JiraTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="37l-C3-aAx"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0039215686269999999" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6wv-PC-vR7" firstAttribute="top" secondItem="idh-Mh-1AK" secondAttribute="bottom" constant="15" id="Xuv-y4-piJ"/>
+                            <constraint firstItem="PJo-t7-BFr" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="1h2-pY-6n5"/>
+                            <constraint firstItem="6wv-PC-vR7" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="2MU-zZ-sCa"/>
+                            <constraint firstItem="VL7-cu-muz" firstAttribute="leading" secondItem="W3V-eR-QjY" secondAttribute="leading" id="8ei-AE-PMP"/>
+                            <constraint firstItem="PJo-t7-BFr" firstAttribute="top" secondItem="6wv-PC-vR7" secondAttribute="bottom" constant="8" id="M6C-Ov-RT4"/>
+                            <constraint firstItem="W3V-eR-QjY" firstAttribute="bottom" secondItem="VL7-cu-muz" secondAttribute="bottom" id="Sop-p1-OCi"/>
+                            <constraint firstItem="6wv-PC-vR7" firstAttribute="top" secondItem="idh-Mh-1AK" secondAttribute="bottom" constant="15" id="dYm-9l-UfK"/>
                             <constraint firstItem="r5q-tC-gXi" firstAttribute="leading" secondItem="W3V-eR-QjY" secondAttribute="leading" constant="16" id="ddP-5E-xH1"/>
                             <constraint firstItem="r5q-tC-gXi" firstAttribute="top" secondItem="W3V-eR-QjY" secondAttribute="top" constant="148" id="f4D-ZR-o8Y"/>
                             <constraint firstItem="W3V-eR-QjY" firstAttribute="trailing" secondItem="r5q-tC-gXi" secondAttribute="trailing" constant="16" id="kvX-QI-DIp"/>
                             <constraint firstItem="idh-Mh-1AK" firstAttribute="top" secondItem="r5q-tC-gXi" secondAttribute="bottom" constant="17.5" id="l7f-TP-x7m"/>
+                            <constraint firstItem="W3V-eR-QjY" firstAttribute="trailing" secondItem="VL7-cu-muz" secondAttribute="trailing" id="lHb-Hb-mUE"/>
                             <constraint firstItem="idh-Mh-1AK" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="zvR-Qk-Ztl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W3V-eR-QjY"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="PJo-t7-BFr" id="MFW-KE-wwv"/>
+                        <outlet property="progressButton" destination="VL7-cu-muz" id="NlS-5i-Wcr"/>
+                        <outlet property="userTextField" destination="6wv-PC-vR7" id="BZk-t2-KPU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rsF-Kt-zLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

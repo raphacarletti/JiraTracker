@@ -12,4 +12,5 @@ import UIKit
 class Colors {
     static let primaryColor = UIColor(red: 255, green: 97, blue: 110, alpha: 1)
     static let grayLightColor = UIColor(white: 0.7, alpha: 1)
+    static let greenColor = UIColor(red: 37/255, green: 211/255, blue: 102/255, alpha: 1)
 }
