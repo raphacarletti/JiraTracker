@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LhR-lB-soV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wZw-MX-QJm">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,44 +12,52 @@
         <array key="PingFang.ttc">
             <string>PingFangTC-Regular</string>
         </array>
+        <array key="SinhalaSangamMN.ttc">
+            <string>SinhalaSangamMN</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Login-->
         <scene sceneID="AUv-sI-alU">
             <objects>
-                <viewController title="Login" id="LhR-lB-soV" customClass="RegistrationViewController" customModule="JiraTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="Login" id="LhR-lB-soV" customClass="LoginViewController" customModule="JiraTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xjZ-aa-1DO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5q-tC-gXi">
-                                <rect key="frame" x="16" y="168" width="288" height="39.5"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jira Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idh-Mh-1AK">
-                                <rect key="frame" x="115" y="225" width="90" height="21"/>
+                                <rect key="frame" x="115" y="135.5" width="90" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="8BX-Lj-MLF"/>
+                                    <constraint firstAttribute="width" constant="90" id="IOA-x4-co9"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="m9v-va-MuY"/>
+                                    <constraint firstAttribute="height" constant="21" id="ohI-6W-aMF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.224745363" green="0.34498023989999999" blue="0.60642063619999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wv-PC-vR7" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
-                                <rect key="frame" x="40" y="261" width="240" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="JXx-nV-rDs"/>
-                                    <constraint firstAttribute="height" constant="30" id="liE-QG-GpO"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJo-t7-BFr" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
-                                <rect key="frame" x="40" y="299" width="240" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="13d-O4-7m8"/>
-                                    <constraint firstAttribute="width" constant="240" id="R7x-7K-2U8"/>
-                                </constraints>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ahs-lV-981">
+                                <rect key="frame" x="40" y="250" width="240" height="68"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wv-PC-vR7" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="JXx-nV-rDs"/>
+                                            <constraint firstAttribute="height" constant="30" id="liE-QG-GpO"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJo-t7-BFr" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="38" width="240" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="13d-O4-7m8"/>
+                                            <constraint firstAttribute="width" constant="240" id="R7x-7K-2U8"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VL7-cu-muz" customClass="CustomProgressButton" customModule="JiraTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="528" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,33 +65,173 @@
                                     <constraint firstAttribute="height" constant="40" id="37l-C3-aAx"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U43-Df-4an">
+                                <rect key="frame" x="0.0" y="326" width="320" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Axi-zq-eP0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="14"/>
+                                <state key="normal" title="Become a Jira Tracker">
+                                    <color key="titleColor" red="0.224745363" green="0.34498023989999999" blue="0.60642063619999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5q-tC-gXi">
+                                <rect key="frame" x="101" y="88" width="119.5" height="39.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39.5" id="4kx-6f-7S6"/>
+                                    <constraint firstAttribute="width" constant="119.5" id="erX-Qf-tnL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="28"/>
+                                <color key="textColor" red="0.224745363" green="0.34498023989999999" blue="0.60642063619999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiraLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Esg-nE-yUh">
+                                <rect key="frame" x="111" y="417" width="98" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="Gyt-Ba-3jD"/>
+                                    <constraint firstAttribute="height" constant="60" id="i2X-pw-HHF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0039215686269999999" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PJo-t7-BFr" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="1h2-pY-6n5"/>
-                            <constraint firstItem="6wv-PC-vR7" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="2MU-zZ-sCa"/>
                             <constraint firstItem="VL7-cu-muz" firstAttribute="leading" secondItem="W3V-eR-QjY" secondAttribute="leading" id="8ei-AE-PMP"/>
-                            <constraint firstItem="PJo-t7-BFr" firstAttribute="top" secondItem="6wv-PC-vR7" secondAttribute="bottom" constant="8" id="M6C-Ov-RT4"/>
+                            <constraint firstItem="U43-Df-4an" firstAttribute="top" secondItem="Ahs-lV-981" secondAttribute="bottom" constant="8" id="971-5X-Dg6"/>
+                            <constraint firstItem="Esg-nE-yUh" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="HIB-7u-AZE"/>
+                            <constraint firstItem="Ahs-lV-981" firstAttribute="centerY" secondItem="xjZ-aa-1DO" secondAttribute="centerY" id="OUw-El-RuU"/>
                             <constraint firstItem="W3V-eR-QjY" firstAttribute="bottom" secondItem="VL7-cu-muz" secondAttribute="bottom" id="Sop-p1-OCi"/>
-                            <constraint firstItem="6wv-PC-vR7" firstAttribute="top" secondItem="idh-Mh-1AK" secondAttribute="bottom" constant="15" id="dYm-9l-UfK"/>
-                            <constraint firstItem="r5q-tC-gXi" firstAttribute="leading" secondItem="W3V-eR-QjY" secondAttribute="leading" constant="16" id="ddP-5E-xH1"/>
-                            <constraint firstItem="r5q-tC-gXi" firstAttribute="top" secondItem="W3V-eR-QjY" secondAttribute="top" constant="148" id="f4D-ZR-o8Y"/>
-                            <constraint firstItem="W3V-eR-QjY" firstAttribute="trailing" secondItem="r5q-tC-gXi" secondAttribute="trailing" constant="16" id="kvX-QI-DIp"/>
-                            <constraint firstItem="idh-Mh-1AK" firstAttribute="top" secondItem="r5q-tC-gXi" secondAttribute="bottom" constant="17.5" id="l7f-TP-x7m"/>
+                            <constraint firstItem="Ahs-lV-981" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="UJ1-eU-Ee4"/>
+                            <constraint firstItem="W3V-eR-QjY" firstAttribute="trailing" secondItem="U43-Df-4an" secondAttribute="trailing" id="bPr-yi-w28"/>
+                            <constraint firstItem="idh-Mh-1AK" firstAttribute="top" secondItem="r5q-tC-gXi" secondAttribute="bottom" constant="8" id="c9b-Ja-Z2d"/>
+                            <constraint firstItem="U43-Df-4an" firstAttribute="leading" secondItem="W3V-eR-QjY" secondAttribute="leading" id="hK3-n8-1bE"/>
                             <constraint firstItem="W3V-eR-QjY" firstAttribute="trailing" secondItem="VL7-cu-muz" secondAttribute="trailing" id="lHb-Hb-mUE"/>
-                            <constraint firstItem="idh-Mh-1AK" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="zvR-Qk-Ztl"/>
+                            <constraint firstItem="r5q-tC-gXi" firstAttribute="top" secondItem="W3V-eR-QjY" secondAttribute="top" constant="24" id="nKJ-Ym-hAh"/>
+                            <constraint firstItem="Esg-nE-yUh" firstAttribute="top" secondItem="U43-Df-4an" secondAttribute="bottom" constant="51" id="udH-yc-r7Z"/>
+                            <constraint firstItem="idh-Mh-1AK" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="vou-eB-F2L"/>
+                            <constraint firstItem="r5q-tC-gXi" firstAttribute="centerX" secondItem="xjZ-aa-1DO" secondAttribute="centerX" id="xXQ-6N-7tG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W3V-eR-QjY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="k5c-nd-bVQ"/>
                     <connections>
+                        <outlet property="becomeAJiraTrackerButton" destination="U43-Df-4an" id="RnG-Rs-oPq"/>
                         <outlet property="passwordTextField" destination="PJo-t7-BFr" id="MFW-KE-wwv"/>
                         <outlet property="progressButton" destination="VL7-cu-muz" id="NlS-5i-Wcr"/>
                         <outlet property="userTextField" destination="6wv-PC-vR7" id="BZk-t2-KPU"/>
+                        <segue destination="Sa7-hY-7A7" kind="show" identifier="goToRegisterSegue" id="NPc-SM-dup"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rsF-Kt-zLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-193.125" y="89.788732394366193"/>
+            <point key="canvasLocation" x="-1853" y="-54"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="0pS-vk-01g">
+            <objects>
+                <viewController storyboardIdentifier="Registration" id="Sa7-hY-7A7" customClass="RegistrationViewController" customModule="JiraTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eS8-Pj-kug">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Phe-tm-TaF">
+                                <rect key="frame" x="40" y="212" width="240" height="144"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLX-OJ-CUo" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="80A-36-Bwv"/>
+                                            <constraint firstAttribute="height" constant="30" id="vxJ-EL-3Gb"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZr-ka-wdy" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="38" width="240" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="LQh-0l-Rrh"/>
+                                            <constraint firstAttribute="width" constant="240" id="Xsi-Ej-eyR"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhE-15-qaX" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="76" width="240" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="ZiH-PV-Q40"/>
+                                            <constraint firstAttribute="height" constant="30" id="q3d-ro-FZb"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhO-nq-EjH" customClass="LoginTextField" customModule="JiraTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="114" width="240" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="aAu-aS-ey5"/>
+                                            <constraint firstAttribute="height" constant="30" id="wR6-gx-1KP"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0J-vZ-bGk" customClass="CustomProgressButton" customModule="JiraTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="sCs-Gq-PLi"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Become a Jira Tracker" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPj-lh-Prw">
+                                <rect key="frame" x="37" y="72" width="246" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="246" id="gX7-fq-LaI"/>
+                                    <constraint firstAttribute="height" constant="82" id="z1t-X5-XBf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <color key="textColor" red="0.224745363" green="0.34498023989999999" blue="0.60642063619999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GPj-lh-Prw" firstAttribute="top" secondItem="giy-AA-a9O" secondAttribute="top" constant="8" id="0g2-gq-Zf1"/>
+                            <constraint firstItem="Phe-tm-TaF" firstAttribute="centerY" secondItem="eS8-Pj-kug" secondAttribute="centerY" id="9Xx-ZA-wti"/>
+                            <constraint firstItem="Phe-tm-TaF" firstAttribute="centerX" secondItem="eS8-Pj-kug" secondAttribute="centerX" id="BEG-AW-wWv"/>
+                            <constraint firstItem="GPj-lh-Prw" firstAttribute="centerX" secondItem="eS8-Pj-kug" secondAttribute="centerX" id="Srx-lK-OXH"/>
+                            <constraint firstItem="giy-AA-a9O" firstAttribute="bottom" secondItem="f0J-vZ-bGk" secondAttribute="bottom" id="iNO-9z-ahf"/>
+                            <constraint firstItem="giy-AA-a9O" firstAttribute="trailing" secondItem="f0J-vZ-bGk" secondAttribute="trailing" id="sQY-1l-FX3"/>
+                            <constraint firstItem="f0J-vZ-bGk" firstAttribute="leading" secondItem="giy-AA-a9O" secondAttribute="leading" id="v9d-Ke-ijD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="giy-AA-a9O"/>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="bhO-nq-EjH" id="cBC-7b-jjR"/>
+                        <outlet property="createAccountButton" destination="f0J-vZ-bGk" id="qLw-Ay-jky"/>
+                        <outlet property="emailTextField" destination="UZr-ka-wdy" id="8qO-R3-1bm"/>
+                        <outlet property="nameTextField" destination="VLX-OJ-CUo" id="6rt-2b-L3g"/>
+                        <outlet property="passwordTextField" destination="xhE-15-qaX" id="ESs-E9-YrJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="suI-0S-k5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1001" y="-54"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pe2-iV-2F4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wZw-MX-QJm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2pm-T8-cUv">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LhR-lB-soV" kind="relationship" relationship="rootViewController" id="idq-T3-yyX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DiJ-PQ-Mlx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2702" y="-53"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="jiraLogo" width="1280" height="640"/>
+    </resources>
 </document>

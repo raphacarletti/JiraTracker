@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40A-ve-IdX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PingFang.ttc">
+            <string>PingFangTC-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Jiras-->
+        <scene sceneID="V1z-6g-Ykp">
+            <objects>
+                <viewController storyboardIdentifier="jirasScreen" id="vWx-jO-nh4" customClass="JirasViewController" customModule="JiraTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5ha-8o-Xah">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, Raphael Leal Carletti,  which Jira will we work together? :D" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MI-Va-tOt">
+                                <rect key="frame" x="16" y="88" width="343" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Q75-fo-9fU"/>
+                                    <constraint firstAttribute="height" constant="80" id="VVc-cJ-5AX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <color key="textColor" red="0.224745363" green="0.34498023989999999" blue="0.60642063619999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-Cc-DdC">
+                                <rect key="frame" x="0.0" y="208" width="375" height="459"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l67-hh-2WW">
+                                <rect key="frame" x="347" y="180" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="NFB-9z-Zqb"/>
+                                    <constraint firstAttribute="width" constant="20" id="z9T-Iq-VCF"/>
+                                </constraints>
+                                <color key="tintColor" red="0.224745363" green="0.34498023989999999" blue="0.60642063619999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="ic_add"/>
+                                <connections>
+                                    <action selector="didTapNewJira:" destination="vWx-jO-nh4" eventType="touchUpInside" id="Uf7-G3-2Lu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yHd-Cc-DdC" firstAttribute="leading" secondItem="i2K-ST-aae" secondAttribute="leading" id="8XF-vH-wVB"/>
+                            <constraint firstItem="yHd-Cc-DdC" firstAttribute="bottom" secondItem="i2K-ST-aae" secondAttribute="bottom" id="8n0-LJ-P4S"/>
+                            <constraint firstItem="3MI-Va-tOt" firstAttribute="top" secondItem="i2K-ST-aae" secondAttribute="top" constant="24" id="Ejg-fC-zs3"/>
+                            <constraint firstItem="3MI-Va-tOt" firstAttribute="centerX" secondItem="5ha-8o-Xah" secondAttribute="centerX" id="MH7-Ga-tA2"/>
+                            <constraint firstItem="i2K-ST-aae" firstAttribute="trailing" secondItem="l67-hh-2WW" secondAttribute="trailing" constant="8" id="RzL-D2-oAq"/>
+                            <constraint firstItem="yHd-Cc-DdC" firstAttribute="top" secondItem="l67-hh-2WW" secondAttribute="bottom" constant="8" id="fEn-de-NMX"/>
+                            <constraint firstItem="yHd-Cc-DdC" firstAttribute="top" secondItem="3MI-Va-tOt" secondAttribute="bottom" constant="40" id="qyM-V2-shO"/>
+                            <constraint firstItem="yHd-Cc-DdC" firstAttribute="trailing" secondItem="i2K-ST-aae" secondAttribute="trailing" id="tPl-Um-JYY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i2K-ST-aae"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Jiras" id="vGB-Zq-Whe"/>
+                    <connections>
+                        <outlet property="newJiraButton" destination="l67-hh-2WW" id="7sN-Yf-aOc"/>
+                        <segue destination="VLj-ob-0DD" kind="presentation" id="U67-cv-s4X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWQ-Zo-ZI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728.79999999999995" y="-81.409295352323838"/>
+        </scene>
+        <!--New Jira View Controller-->
+        <scene sceneID="nuI-zb-hMl">
+            <objects>
+                <viewController storyboardIdentifier="newJiraScreen" id="VLj-ob-0DD" customClass="NewJiraViewController" customModule="JiraTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="Ekx-dl-xaS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jez-E9-rm8" customClass="NewJiraPopUp" customModule="JiraTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jez-E9-rm8" firstAttribute="leading" secondItem="y0J-yb-ISD" secondAttribute="leading" id="BTD-Qr-7C9"/>
+                            <constraint firstItem="Jez-E9-rm8" firstAttribute="top" secondItem="y0J-yb-ISD" secondAttribute="top" id="K7Z-06-uta"/>
+                            <constraint firstItem="y0J-yb-ISD" firstAttribute="trailing" secondItem="Jez-E9-rm8" secondAttribute="trailing" id="RRA-dR-8Mw"/>
+                            <constraint firstItem="y0J-yb-ISD" firstAttribute="bottom" secondItem="Jez-E9-rm8" secondAttribute="bottom" id="bDZ-QL-sxu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y0J-yb-ISD"/>
+                    </view>
+                    <connections>
+                        <outlet property="newJiraView" destination="Jez-E9-rm8" id="aeI-g0-8FA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ju0-xm-N3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="817"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wIL-Fn-3X8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="40A-ve-IdX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yLc-40-qbL">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vWx-jO-nh4" kind="relationship" relationship="rootViewController" id="q7i-J1-V47"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qdv-sP-Dx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-119" y="-81"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_add" width="128" height="128"/>
+    </resources>
+</document>

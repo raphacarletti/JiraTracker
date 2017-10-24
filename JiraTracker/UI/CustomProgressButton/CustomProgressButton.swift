@@ -61,16 +61,17 @@ class CustomProgressButton : UIView {
     
     //MARK: - Progress Bar
     func setProgressBar(progress: Float, animated: Bool, completion: (() -> Void)?) {
-        self.setProgressBar(progress: progress, progressBarColor: self.progressBar.backgroundColor, buttonTitleColor: self.CTAButton.titleColor(for: .normal), animated: animated, completion: completion)
+        self.setProgressBar(progress: progress, buttonTitle: "Yeah", progressBarColor: self.progressBar.backgroundColor, buttonTitleColor: self.CTAButton.titleColor(for: .normal), animated: animated, completion: completion)
     }
     
-    func setProgressBar(progress: Float, progressBarColor: UIColor?, buttonTitleColor: UIColor?, animated: Bool, completion: (() -> Void)?) {
+    func setProgressBar(progress: Float, buttonTitle: String, progressBarColor: UIColor?, buttonTitleColor: UIColor?, animated: Bool, completion: (() -> Void)?) {
         self.currentProgress = progress
         if (self.currentProgress < 0.0) {
             self.currentProgress = 0.0
         } else if (self.currentProgress > 1.0) {
             self.currentProgress = 1.0
         }
+        self.CTAButton.isEnabled = false
 
         self.progressBarWidthConstraint.constant = CGFloat(self.currentProgress) * self.contentView.frame.width
 
@@ -83,6 +84,7 @@ class CustomProgressButton : UIView {
             if let buttonTitleColor = buttonTitleColor {
                 self.CTAButton.setTitleColor(buttonTitleColor, for: .normal)
             }
+            self.CTAButton.setTitle(buttonTitle, for: .normal)
         }) { (success) in
             completion?()
         }
@@ -90,5 +92,20 @@ class CustomProgressButton : UIView {
     
     func setProgressBarColor(color: UIColor) {
         self.progressBar.backgroundColor = color
+    }
+    
+    func setInitialState(animated: Bool) {
+        self.progressBarWidthConstraint.constant = -1000
+        UIView.animate(withDuration: animated ? 1.0 : 0.0, animations: {
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+            self.progressBar.backgroundColor = Colors.progressBlue
+            self.CTAButton.setTitleColor(UIColor.white, for: .normal)
+            self.CTAButton.setTitle("Sign In", for: .normal)
+        }, completion: { (success) in
+            if success {
+                self.CTAButton.isEnabled = true
+            }
+        })
     }
 }

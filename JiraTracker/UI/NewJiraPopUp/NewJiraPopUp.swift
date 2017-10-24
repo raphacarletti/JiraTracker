@@ -1,20 +1,24 @@
 //
-//  LoginTextField.swift
+//  NewJiraPopUp.swift
 //  JiraTracker
 //
-//  Created by Raphael Carletti on 10/20/17.
+//  Created by Raphael Carletti on 10/24/17.
 //  Copyright © 2017 Raphael Carletti. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
+protocol NewJiraPopUpDelegate {
+    func didTapSaveButton()
+    func didTapToDismiss()
+}
 
-class LoginTextField : UIView {
-    //MARK: - IBOutlets
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var textField: UITextField!
-    @IBOutlet var viewBar: UIView!
+class NewJiraPopUp : UIView {
+    
+    var delegate: NewJiraPopUpDelegate?
+    @IBOutlet var popUp: UIView!
+    @IBOutlet var backView: UIView!
     
     //MARK: - Functions
     override init(frame: CGRect) {
@@ -30,9 +34,10 @@ class LoginTextField : UIView {
     private func setUpView() {
         let view = viewFromNibForClass()
         view.frame = bounds
-        imageView.tintColor = Colors.grayLightColor
         
         addSubview(view)
+        popUp.layer.cornerRadius = 5
+        backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss(_:))))
     }
     
     private func viewFromNibForClass() -> UIView {
@@ -43,8 +48,12 @@ class LoginTextField : UIView {
         return view
     }
     
-    func paintBarAndImage(color: UIColor) {
-        self.imageView.tintColor = color
-        self.viewBar.backgroundColor = color
+    @IBAction func didTapSaveButton(_ sender: Any) {
+        self.delegate?.didTapSaveButton()
     }
+    
+    @objc func didTapToDismiss(_ sender: Any) {
+        self.delegate?.didTapToDismiss()
+    }
+    
 }
