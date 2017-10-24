@@ -15,10 +15,14 @@ protocol NewJiraPopUpDelegate {
 }
 
 class NewJiraPopUp : UIView {
-    
-    var delegate: NewJiraPopUpDelegate?
+    //MARK: - IBOutlets
     @IBOutlet var popUp: UIView!
     @IBOutlet var backView: UIView!
+    @IBOutlet weak var jiraNameTextField: UITextField!
+    @IBOutlet weak var jiraDescriptionTextField: UITextField!
+    
+    //MARK: - Variables
+    var delegate: NewJiraPopUpDelegate?
     
     //MARK: - Functions
     override init(frame: CGRect) {
@@ -48,12 +52,18 @@ class NewJiraPopUp : UIView {
         return view
     }
     
+    //MARK: - IBActions
     @IBAction func didTapSaveButton(_ sender: Any) {
         self.delegate?.didTapSaveButton()
     }
     
     @objc func didTapToDismiss(_ sender: Any) {
-        self.delegate?.didTapToDismiss()
+        if self.jiraNameTextField.isFirstResponder {
+            self.jiraNameTextField.resignFirstResponder()
+        } else if self.jiraDescriptionTextField.isFirstResponder {
+            self.jiraDescriptionTextField.resignFirstResponder()
+        } else {
+            self.delegate?.didTapToDismiss()
+        }
     }
-    
 }

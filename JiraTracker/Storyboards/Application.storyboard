@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40A-ve-IdX">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,11 +19,11 @@
             <objects>
                 <viewController storyboardIdentifier="jirasScreen" id="vWx-jO-nh4" customClass="JirasViewController" customModule="JiraTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ha-8o-Xah">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, Raphael Leal Carletti,  which Jira will we work together? :D" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MI-Va-tOt">
-                                <rect key="frame" x="16" y="88" width="343" height="80"/>
+                                <rect key="frame" x="-11.5" y="88" width="343" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="Q75-fo-9fU"/>
                                     <constraint firstAttribute="height" constant="80" id="VVc-cJ-5AX"/>
@@ -33,11 +33,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-Cc-DdC">
-                                <rect key="frame" x="0.0" y="208" width="375" height="459"/>
+                                <rect key="frame" x="0.0" y="208" width="320" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l67-hh-2WW">
-                                <rect key="frame" x="347" y="180" width="20" height="20"/>
+                                <rect key="frame" x="292" y="180" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NFB-9z-Zqb"/>
                                     <constraint firstAttribute="width" constant="20" id="z9T-Iq-VCF"/>
@@ -62,7 +62,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i2K-ST-aae"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Jiras" id="vGB-Zq-Whe"/>
+                    <navigationItem key="navigationItem" title="Jiras" id="vGB-Zq-Whe">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="Qb3-OZ-Dtd">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didTapSignOut:" destination="vWx-jO-nh4" id="jsD-ze-2XJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="newJiraButton" destination="l67-hh-2WW" id="7sN-Yf-aOc"/>
                         <segue destination="VLj-ob-0DD" kind="presentation" id="U67-cv-s4X"/>
@@ -77,11 +84,11 @@
             <objects>
                 <viewController storyboardIdentifier="newJiraScreen" id="VLj-ob-0DD" customClass="NewJiraViewController" customModule="JiraTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="Ekx-dl-xaS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jez-E9-rm8" customClass="NewJiraPopUp" customModule="JiraTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -108,7 +115,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="40A-ve-IdX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yLc-40-qbL">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -95,7 +95,7 @@ class CustomProgressButton : UIView {
     }
     
     func setInitialState(animated: Bool) {
-        self.progressBarWidthConstraint.constant = -1000
+        self.progressBarWidthConstraint.constant = 0
         UIView.animate(withDuration: animated ? 1.0 : 0.0, animations: {
             self.setNeedsLayout()
             self.layoutIfNeeded()

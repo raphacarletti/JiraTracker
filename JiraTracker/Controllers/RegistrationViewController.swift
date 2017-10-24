@@ -54,7 +54,7 @@ class RegistrationViewController : UIViewController {
     
     func shouldPaintTextFieldsRed() {
         let color = Colors.progressRed
-        self.createAccountButton.setProgressBar(progress: 1.0, buttonTitle: "Sucess", progressBarColor: Colors.progressRed, buttonTitleColor: UIColor.white, animated: true, completion: nil)
+        self.createAccountButton.setProgressBar(progress: 1.0, buttonTitle: "Error", progressBarColor: Colors.progressRed, buttonTitleColor: UIColor.white, animated: true, completion: nil)
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
             self.createAccountButton.setInitialState(animated: true)
         })
@@ -85,60 +85,39 @@ class RegistrationViewController : UIViewController {
 extension RegistrationViewController : CustomProgressButtonDelegate {
     func didTapCTAButton(_ sender: Any) {
         shouldPaintTextFieldsWhite()
-        if !(emailTextField.textField.text?.isEmpty)!{
-            if let email = emailTextField.textField.text {
-                if !(passwordTextField.textField.text?.isEmpty)!{
-                    if let password = passwordTextField.textField.text {
-                        if !(confirmPasswordTextField.textField.text?.isEmpty)!{
-                            if let passwordConfirmed = confirmPasswordTextField.textField.text{
-                                if !(nameTextField.textField.text?.isEmpty)!{
-                                    if let name = nameTextField.textField.text {
-                                        if password == passwordConfirmed {
-                                            if password.characters.count > 6 {
-                                                if email.contains("@") {
-                                                    Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-                                                        if error == nil {
-                                                            let userValue = ["name": name, "email": email]
-                                                            Database.database().reference().child("users").child(user!.uid).setValue(userValue)
-                                                            self.createAccountButton.setProgressBar(progress: 1.0, buttonTitle: "Error", progressBarColor: Colors.greenColor, buttonTitleColor: UIColor.white, animated: true, completion: nil)
-                                                            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
-                                                                
-                                                            })
-                                                        } else {
-                                                            let alertController = self.getAlertWithOkAction(title: "Error when creating account", message: "Please, try again, maybe this account already exist")
-                                                            self.present(alertController, animated: true, completion: nil)
-                                                        }
-                                                    })
-                                                } else {
-                                                    shouldPaintTextFieldsRed()
-                                                    let alertController = self.getAlertWithOkAction(title: "Invalid mail", message: "")
-                                                    self.present(alertController, animated: true, completion: nil)
-                                                }
-                                            } else {
-                                                shouldPaintTextFieldsRed()
-                                                let alertController = self.getAlertWithOkAction(title: "Password invalid", message: "Password need has at least 6 characters")
-                                                self.present(alertController, animated: true, completion: nil)
-                                            }
-                                        } else {
-                                            shouldPaintTextFieldsRed()
-                                            let alertController = self.getAlertWithOkAction(title: "Passwords don't match", message: "Please, try again")
-                                            self.present(alertController, animated: true, completion: nil)
-                                        }
-                                    }
-                                } else {
-                                    shouldPaintTextFieldsRed()
-                                }
-                            }
-                        } else {
-                            shouldPaintTextFieldsRed()
-                        }
+        if let name = nameTextField.textField.text,
+            let email = emailTextField.textField.text,
+            let password = passwordTextField.textField.text,
+            let confirmPassword = confirmPasswordTextField.textField.text {
+            if name.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty {
+                shouldPaintTextFieldsRed()
+            } else if !email.contains("@") {
+                shouldPaintTextFieldsRed()
+                let alertController = self.getAlertWithOkAction(title: "Invalid mail", message: "")
+                self.present(alertController, animated: true, completion: nil)
+            } else if password.characters.count < 6 {
+                shouldPaintTextFieldsRed()
+                let alertController = self.getAlertWithOkAction(title: "Invalid password", message: "Password needs at least 6 characters.")
+                self.present(alertController, animated: true, completion: nil)
+            } else if password != confirmPassword {
+                shouldPaintTextFieldsRed()
+                let alertController = self.getAlertWithOkAction(title: "Passwords don't match", message: "")
+                self.present(alertController, animated: true, completion: nil)
+            } else {
+                Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                    if let error = error {
+                        let alertController = self.getAlertWithOkAction(title: "Error creating account", message: "\(error.localizedDescription)")
+                        self.present(alertController, animated: true, completion: nil)
+                    } else {
+                        let userValue = ["name": name, "email": email]
+                        Database.database().reference().child("users").child(user!.uid).setValue(userValue)
+                        self.createAccountButton.setProgressBar(progress: 1.0, buttonTitle: "Success", progressBarColor: Colors.greenColor, buttonTitleColor: UIColor.white, animated: true, completion: nil)
+                        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
+                            
+                        })
                     }
-                } else {
-                    shouldPaintTextFieldsRed()
-                }
+                })
             }
-        } else {
-            shouldPaintTextFieldsRed()
         }
     }
 }

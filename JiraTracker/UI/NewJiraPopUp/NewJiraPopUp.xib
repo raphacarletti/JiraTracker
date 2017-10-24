@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewJiraPopUp" customModule="JiraTracker" customModuleProvider="target">
             <connections>
                 <outlet property="backView" destination="O1s-cQ-T8L" id="UtB-an-Pc3"/>
+                <outlet property="jiraDescriptionTextField" destination="kt4-1D-HFp" id="UGh-Mn-FB1"/>
+                <outlet property="jiraNameTextField" destination="KBB-Sh-gtn" id="SMI-m2-ana"/>
                 <outlet property="popUp" destination="6Gm-CV-z6N" id="Di8-JU-INj"/>
             </connections>
         </placeholder>

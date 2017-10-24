@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class JirasViewController: UIViewController {
     
@@ -16,9 +17,8 @@ class JirasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newJiraButton.imageView?.tintColor = Colors.grayLightColor
-
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.setHidesBackButton(true, animated: false)
@@ -36,4 +36,9 @@ class JirasViewController: UIViewController {
         self.present(newJira, animated: true, completion: nil)
     }
     
+    @IBAction func didTapSignOut(_ sender: Any) {
+        //FIXME: Need to catch throw??
+        try? Auth.auth().signOut()
+        self.navigationController?.popViewController(animated: true)
+    }
 }
