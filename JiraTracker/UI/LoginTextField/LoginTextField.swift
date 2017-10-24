@@ -11,9 +11,11 @@ import UIKit
 
 
 class LoginTextField : UIView {
+    //MARK: - IBOutlets
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textField: UITextField!
     
+    //MARK: - Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()

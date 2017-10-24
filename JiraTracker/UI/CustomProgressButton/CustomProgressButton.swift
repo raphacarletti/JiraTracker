@@ -59,20 +59,22 @@ class CustomProgressButton : UIView {
         self.delegate?.didTapCTAButton(sender)
     }
     
-    //MARK: - Progress
-    func setProgressBar(progress: Float, animated: Bool) {
-        self.setProgressBar(progress: progress, progressBarColor: self.progressBar.backgroundColor, buttonTitleColor: self.CTAButton.titleColor(for: .normal), animated: animated)
+    //MARK: - Progress Bar
+    func setProgressBar(progress: Float, animated: Bool, completion: (() -> Void)?) {
+        self.setProgressBar(progress: progress, progressBarColor: self.progressBar.backgroundColor, buttonTitleColor: self.CTAButton.titleColor(for: .normal), animated: animated, completion: completion)
     }
     
-    func setProgressBar(progress: Float, progressBarColor: UIColor?, buttonTitleColor: UIColor?, animated: Bool) {
+    func setProgressBar(progress: Float, progressBarColor: UIColor?, buttonTitleColor: UIColor?, animated: Bool, completion: (() -> Void)?) {
         self.currentProgress = progress
         if (self.currentProgress < 0.0) {
             self.currentProgress = 0.0
         } else if (self.currentProgress > 1.0) {
             self.currentProgress = 1.0
         }
+
         self.progressBarWidthConstraint.constant = CGFloat(self.currentProgress) * self.contentView.frame.width
-        UIView.animate(withDuration: animated ? 1.0 : 0.0) {
+
+        UIView.animate(withDuration: animated ? 1.0 : 0.0, animations: {
             self.setNeedsLayout()
             self.layoutIfNeeded()
             if let progressBarColor = progressBarColor {
@@ -81,6 +83,8 @@ class CustomProgressButton : UIView {
             if let buttonTitleColor = buttonTitleColor {
                 self.CTAButton.setTitleColor(buttonTitleColor, for: .normal)
             }
+        }) { (success) in
+            completion?()
         }
     }
     

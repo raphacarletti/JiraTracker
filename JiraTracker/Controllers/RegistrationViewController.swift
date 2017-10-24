@@ -37,6 +37,6 @@ class RegistrationViewController: UIViewController {
 extension RegistrationViewController : CustomProgressButtonDelegate {
     func didTapCTAButton(_ sender: Any) {
         //FIXME: Add Login Method
-        self.progressButton.setProgressBar(progress: 1.0, progressBarColor: UIColor.red, buttonTitleColor: UIColor.black, animated: true)
+        self.progressButton.setProgressBar(progress: 1.0, progressBarColor: UIColor.red, buttonTitleColor: UIColor.black, animated: true, completion: nil)
     }
 }
