@@ -24,6 +24,8 @@ class CustomProgressButton : UIView {
     //MARK: - Variables
     var delegate: CustomProgressButtonDelegate?
     
+    var currentProgress: Float = 0.0
+    
     //MARK: - Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,13 +65,13 @@ class CustomProgressButton : UIView {
     }
     
     func setProgressBar(progress: Float, progressBarColor: UIColor?, buttonTitleColor: UIColor?, animated: Bool) {
-        var progress = CGFloat(progress)
-        if (progress < 0.0) {
-            progress = 0.0
-        } else if (progress > 1.0) {
-            progress = 1.0
+        self.currentProgress = progress
+        if (self.currentProgress < 0.0) {
+            self.currentProgress = 0.0
+        } else if (self.currentProgress > 1.0) {
+            self.currentProgress = 1.0
         }
-        self.progressBarWidthConstraint.constant = progress * self.contentView.frame.width
+        self.progressBarWidthConstraint.constant = CGFloat(self.currentProgress) * self.contentView.frame.width
         UIView.animate(withDuration: animated ? 1.0 : 0.0) {
             self.setNeedsLayout()
             self.layoutIfNeeded()
