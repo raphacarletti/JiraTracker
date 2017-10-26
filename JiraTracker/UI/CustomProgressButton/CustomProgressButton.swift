@@ -54,6 +54,10 @@ class CustomProgressButton : UIView {
         return view
     }
     
+    func enableCTA(enable: Bool) {
+        self.CTAButton.isEnabled = enable
+    }
+    
     //MARK: - IBActions
     @IBAction func didTapCTAButton(_ sender: Any) {
         self.delegate?.didTapCTAButton(sender)

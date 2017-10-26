@@ -26,11 +26,13 @@ class LoginViewController: UIViewController {
         self.userTextField.imageView.image = UIImage(named: "ic_email")
         self.userTextField.textField.textColor = UIColor.black
         self.userTextField.textField.placeholder = "E-mail"
+        self.userTextField.textField.delegate = self
 
         self.passwordTextField.imageView.image = UIImage(named: "ic_lock")
         self.passwordTextField.textField.textColor = UIColor.black
         self.passwordTextField.textField.isSecureTextEntry = true
         self.passwordTextField.textField.placeholder = "Password"
+        self.passwordTextField.textField.delegate = self
         
         self.progressButton.delegate = self
         
@@ -89,5 +91,13 @@ extension LoginViewController : CustomProgressButtonDelegate {
                 })
             }
         }
+    }
+}
+
+//MARK: - TextFieldDelegate
+extension LoginViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }

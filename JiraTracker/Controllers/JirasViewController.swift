@@ -85,7 +85,11 @@ class JirasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func didTapSignOut(_ sender: Any) {
         //FIXME: Need to catch throw??
         try? Auth.auth().signOut()
-        self.navigationController?.popViewController(animated: true)
+        if self.navigationController?.viewControllers.count == 1 {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     //MARK: - Table View Data Source Functions

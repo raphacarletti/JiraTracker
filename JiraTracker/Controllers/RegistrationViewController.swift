@@ -28,20 +28,24 @@ class RegistrationViewController : UIViewController {
         self.emailTextField.imageView.image = UIImage(named: "ic_email")
         self.emailTextField.textField.textColor = UIColor.black
         self.emailTextField.textField.placeholder = "E-mail"
+        self.emailTextField.textField.delegate = self
         
         self.passwordTextField.imageView.image = UIImage(named: "ic_lock")
         self.passwordTextField.textField.textColor = UIColor.black
         self.passwordTextField.textField.isSecureTextEntry = true
         self.passwordTextField.textField.placeholder = "Password"
+        self.passwordTextField.textField.delegate = self
         
         self.confirmPasswordTextField.imageView.image = UIImage(named: "ic_lock")
         self.confirmPasswordTextField.textField.textColor = UIColor.black
         self.confirmPasswordTextField.textField.isSecureTextEntry = true
         self.confirmPasswordTextField.textField.placeholder = "Confirm Password"
+        self.confirmPasswordTextField.textField.delegate = self
         
         self.nameTextField.imageView.image = UIImage(named: "ic_profile")
         self.nameTextField.textField.textColor = UIColor.black
         self.nameTextField.textField.placeholder = "Name"
+        self.nameTextField.textField.delegate = self
         
         self.createAccountButton.delegate = self
     }
@@ -55,7 +59,21 @@ class RegistrationViewController : UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        nameTextField.textField.text = ""
+        emailTextField.textField.text = ""
+        passwordTextField.textField.text = ""
+        confirmPasswordTextField.textField.text = ""
+    }
+    
+    func goToJirasScreen(animated: Bool) {
+        let storyboard = UIStoryboard(name: "Application", bundle: nil)
+        let jiraScreen = storyboard.instantiateViewController(withIdentifier: "jirasScreen")
+        self.navigationController?.pushViewController(jiraScreen, animated: animated)
+    }
+    
     func shouldPaintTextFieldsRed() {
+        self.createAccountButton.enableCTA(enable: true)
         let color = Colors.progressRed
         self.createAccountButton.setProgressBar(progress: 1.0, buttonTitle: "Error", progressBarColor: Colors.progressRed, buttonTitleColor: UIColor.white, animated: true, completion: nil)
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
@@ -87,6 +105,8 @@ class RegistrationViewController : UIViewController {
 //MARK: - CustomProgressButton Delegate
 extension RegistrationViewController : CustomProgressButtonDelegate {
     func didTapCTAButton(_ sender: Any) {
+        let button = sender as! UIButton
+        button.isEnabled = false
         shouldPaintTextFieldsWhite()
         if let name = nameTextField.textField.text,
             let email = emailTextField.textField.text,
@@ -109,6 +129,7 @@ extension RegistrationViewController : CustomProgressButtonDelegate {
             } else {
                 Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                     if let error = error {
+                        button.isEnabled = true
                         let alertController = self.getAlertWithOkAction(title: "Error creating account", message: "\(error.localizedDescription)")
                         self.present(alertController, animated: true, completion: nil)
                     } else {
@@ -116,12 +137,20 @@ extension RegistrationViewController : CustomProgressButtonDelegate {
                         Database.database().reference().child("users").child(user!.uid).setValue(userValue)
                         self.createAccountButton.setProgressBar(progress: 1.0, buttonTitle: "Success", progressBarColor: Colors.greenColor, buttonTitleColor: UIColor.white, animated: true, completion: nil)
                         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
-                            
+                            self.goToJirasScreen(animated: true)
                         })
                     }
                 })
             }
         }
+    }
+}
+
+//MARK: - TextFieldDelegate
+extension RegistrationViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }
 
