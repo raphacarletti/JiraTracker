@@ -12,8 +12,13 @@ import FirebaseDatabase
 class NewJiraViewController: UIViewController {
     @IBOutlet var newJiraView: NewJiraPopUp!
     
+    var jiras : Jiras!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
         newJiraView.delegate = self
         // Do any additional setup after loading the view.
     }
@@ -40,11 +45,17 @@ extension NewJiraViewController : NewJiraPopUpDelegate {
     func didTapSaveButton() {
         if let jiraName = newJiraView.jiraNameTextField.text {
             if let jiraDescription = newJiraView.jiraDescriptionTextField.text {
-                let jiraValue = ["description": jiraDescription]
-                Database.database().reference().child("jiras").child(jiraName).setValue(jiraValue)
+                if !self.jiras.jiras.contains(where: { (jira) -> Bool in return jira.name == jiraName }) {
+                    let jiraValue = ["description": jiraDescription]
+                    Database.database().reference().child("jiras").child(jiraName).setValue(jiraValue)
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    let alert = self.getAlertWithOkAction(title: "This jira is already created", message: "You can't create two jiras with same name!")
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
-        self.dismiss(animated: true, completion: nil)
+        
     }
     
     func didTapToDismiss() {

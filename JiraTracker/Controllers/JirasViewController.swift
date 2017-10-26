@@ -26,6 +26,9 @@ class JirasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.delegate = self
         self.tableView.dataSource = self
         let user = Auth.auth().currentUser
+        
+        tableView.register(JiraTableViewCell.classForCoder(), forCellReuseIdentifier: "jiraCell")
+        tableView.register(UINib(nibName: "JiraTableViewCell", bundle: nil), forCellReuseIdentifier: "jiraCell")
         Database.database().reference().child("users").child((user?.uid)!).observeSingleEvent(of: .value) { (snapshot) in
             let data = snapshot.value as! NSDictionary
             let name = data["name"] as! String
@@ -33,32 +36,37 @@ class JirasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.currentUser = User(email: email, uid: snapshot.key, name: name)
             self.welcomeLabel.text = "Hi, \(self.currentUser.name!),  which Jira will we work together? :D"
         }
-        
-        Database.database().reference().child("users").observe(.childAdded) { (snapshot) in
-            let uid = snapshot.key
-            let data = snapshot.value as! NSDictionary
-            let name = data["name"] as! String
-            let email = data["email"] as! String
-            let user = User(email: email, uid: uid, name: name)
-            Users.shared.users.append(user)
-        }
-        
-        Database.database().reference().child("jiras").observe(.childAdded) { (snapshot) in
-            let name = snapshot.key
-            let data = snapshot.value as! NSDictionary
-            if let description = data["description"] as? String {
-                let jira = Jira(name: name, description: description)
-                self.jiras.jiras.append(jira)
-            }
-            self.tableView.reloadData()
-            
-        }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        
+        
+        Database.database().reference().child("users").observe(.childAdded) { (snapshot) in
+            let uid = snapshot.key
+            let data = snapshot.value as! NSDictionary
+            if !Users.shared.users.contains(where: { (user) -> Bool in return user.uid == uid }) {
+                let name = data["name"] as! String
+                let email = data["email"] as! String
+                let user = User(email: email, uid: uid, name: name)
+                Users.shared.users.append(user)
+            }
+        }
+        
+        Database.database().reference().child("jiras").observe(.childAdded) { (snapshot) in
+            let name = snapshot.key
+            let data = snapshot.value as! NSDictionary
+            if !self.jiras.jiras.contains(where: { (jira) -> Bool in return jira.name == name }){
+                if let description = data["description"] as? String {
+                    let jira = Jira(name: name, description: description)
+                    self.jiras.jiras.append(jira)
+                }
+            }
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +76,8 @@ class JirasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func didTapNewJira(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Application", bundle: nil)
-        let newJira = storyboard.instantiateViewController(withIdentifier: "newJiraScreen")
+        let newJira = storyboard.instantiateViewController(withIdentifier: "newJiraScreen") as! NewJiraViewController
+        newJira.jiras = self.jiras
         newJira.modalPresentationStyle = .overCurrentContext
         self.present(newJira, animated: true, completion: nil)
     }

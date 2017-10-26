@@ -19,7 +19,7 @@ class JiraLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var tableView: UITableView!
     
     //MARK: - Variables
-    var timer : Timer!
+    var timer : Timer = Timer()
     var miliseconds : Int = 0
     var date : String!
     var jira : Jira!
@@ -37,6 +37,8 @@ class JiraLogViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(LogTableViewCell.classForCoder(), forCellReuseIdentifier: "logCell")
+        tableView.register(UINib(nibName: "LogTableViewCell", bundle: nil), forCellReuseIdentifier: "logCell")
         
         let backButton = UIBarButtonItem (image: UIImage(named: "ic_back")!, style: .plain, target: self, action: #selector(goToBack))
         self.navigationItem.leftBarButtonItem = backButton
@@ -147,7 +149,7 @@ class JiraLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "logCell", for: indexPath) as! LogTableViewCell
-        cell.resizeWidth(width: tableView.frame.width)
+//        cell.resizeWidth(width: tableView.frame.width)
         let log = jira.logs[indexPath.row]
         cell.hoursLabel.text = formatTimeToStringInCell(milisec: log.hours)
         cell.dateLabel.text = log.dateInitial
@@ -178,8 +180,22 @@ class JiraLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func timerOffInForeground() {
-        dateForeground = Date()
-        let secondsPassed = dateForeground.timeIntervalSince(dateBackground)
-        self.miliseconds += Int(secondsPassed) * 100
+        if timer.isValid{
+            dateForeground = Date()
+            let secondsPassed = dateForeground.timeIntervalSince(dateBackground)
+            self.miliseconds += Int(secondsPassed) * 100
+        }
+        Database.database().reference().child("logs").child(jira.name).observe(.childAdded) { (snapshot) in
+            let data = snapshot.value as! NSDictionary
+            let key = snapshot.key
+            if !self.jira.logs.contains(where: { (log) -> Bool in return log.key == key }) {
+                let date = data["dateInitial"] as! String
+                let hours = data["hours"] as! Int
+                let name = data["uid"] as! String
+                let log = Log(dateInitial: date, hours: hours, key: key, name: name)
+                self.jira.logs.append(log)
+                self.tableView.reloadData()
+            }
+        }
     }
 }

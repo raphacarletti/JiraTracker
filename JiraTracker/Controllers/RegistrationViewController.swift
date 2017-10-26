@@ -21,6 +21,9 @@ class RegistrationViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
         //Settings for layout
         self.emailTextField.imageView.image = UIImage(named: "ic_email")
         self.emailTextField.textField.textColor = UIColor.black

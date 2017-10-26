@@ -9,5 +9,6 @@ target 'JiraTracker' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'Firebase/Core'
+    pod 'IQKeyboardManagerSwift', '~> 5.0.0'
 
 end

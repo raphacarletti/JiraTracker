@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         self.userTextField.imageView.image = UIImage(named: "ic_email")
         self.userTextField.textField.textColor = UIColor.black
         self.userTextField.textField.placeholder = "E-mail"
@@ -42,7 +44,7 @@ class LoginViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Dispose of any resources @objc that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {

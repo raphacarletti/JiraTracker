@@ -17,31 +17,15 @@ class LogTableViewCell : UITableViewCell{
     
     //MARK: - Variables
     
-    
-    //MARK: - Functions
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setUpView()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
     }
     
-    private func setUpView() {
-        let view = viewFromNibForClass()
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
         
-        addSubview(view)
+        // Configure the view for the selected state
     }
-    
-    private func viewFromNibForClass() -> UITableViewCell {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UITableViewCell
-        
-        return view
-    }
-    
-    func resizeWidth(width: CGFloat) {
-        self.frame = CGRect(x: 0, y: 0, width: width, height: 37)
-    }
-    
 }
 
