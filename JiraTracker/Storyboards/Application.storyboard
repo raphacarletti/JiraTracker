@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, Raphael Leal Carletti,  which Jira will we work together? :D" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MI-Va-tOt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MI-Va-tOt">
                                 <rect key="frame" x="-11.5" y="88" width="343" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="Q75-fo-9fU"/>
@@ -32,9 +32,22 @@
                                 <color key="textColor" red="0.224745363" green="0.34498023989999999" blue="0.60642063619999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-Cc-DdC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="63" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-Cc-DdC">
                                 <rect key="frame" x="0.0" y="208" width="320" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="jiraCell" rowHeight="63" id="My5-It-fUI" customClass="JiraTableViewCell" customModule="JiraTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="63"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="My5-It-fUI" id="4FC-2F-gAs">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="62.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vWx-jO-nh4" id="FhF-LW-sUW"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l67-hh-2WW">
                                 <rect key="frame" x="292" y="180" width="20" height="20"/>
@@ -72,12 +85,137 @@
                     </navigationItem>
                     <connections>
                         <outlet property="newJiraButton" destination="l67-hh-2WW" id="7sN-Yf-aOc"/>
+                        <outlet property="tableView" destination="yHd-Cc-DdC" id="ZJM-8w-Mki"/>
+                        <outlet property="welcomeLabel" destination="3MI-Va-tOt" id="dfE-8Y-XbL"/>
                         <segue destination="VLj-ob-0DD" kind="presentation" id="U67-cv-s4X"/>
+                        <segue destination="vZe-K9-V8c" kind="show" id="2Rs-M1-cN6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWQ-Zo-ZI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="728.79999999999995" y="-81.409295352323838"/>
+        </scene>
+        <!--Jira Log View Controller-->
+        <scene sceneID="laI-UJ-GAz">
+            <objects>
+                <viewController storyboardIdentifier="jiraLogScreen" id="vZe-K9-V8c" customClass="JiraLogViewController" customModule="JiraTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="daB-N7-XgW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ew-eh-tIy">
+                                <rect key="frame" x="114" y="72" width="92.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxu-oM-7bw">
+                                <rect key="frame" x="35" y="134.5" width="250" height="250"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="ktS-ih-ofV">
+                                        <rect key="frame" x="50" y="72" width="150" height="106.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00:00,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="aNx-rg-Hws">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xW1-Sw-Shi">
+                                                <rect key="frame" x="0.0" y="76.5" width="150" height="30"/>
+                                                <color key="backgroundColor" red="0.1450980392" green="0.82745098039999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="YMe-8t-YFS"/>
+                                                </constraints>
+                                                <state key="normal" title="Start">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapStartStopButton:" destination="vZe-K9-V8c" eventType="touchUpInside" id="6qE-UN-b1V"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="O2K-QF-KLh"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="0gr-yI-EWE"/>
+                                    <constraint firstAttribute="width" constant="250" id="BbH-1q-IE3"/>
+                                    <constraint firstItem="ktS-ih-ofV" firstAttribute="centerX" secondItem="Bxu-oM-7bw" secondAttribute="centerX" id="DTH-3P-O1i"/>
+                                    <constraint firstItem="ktS-ih-ofV" firstAttribute="centerY" secondItem="Bxu-oM-7bw" secondAttribute="centerY" id="sQ3-eS-bOg"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Esse jira fofinho ne?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ag-eq-Sr8">
+                                <rect key="frame" x="16" y="100.5" width="288" height="18.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="37" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jXm-Xt-6bZ">
+                                <rect key="frame" x="0.0" y="392.5" width="320" height="175.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="logCell" rowHeight="37" id="rge-99-cMl" customClass="LogTableViewCell" customModule="JiraTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rge-99-cMl" id="V2E-Z9-Oyq">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="36.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vZe-K9-V8c" id="XVc-i2-6fv"/>
+                                    <outlet property="delegate" destination="vZe-K9-V8c" id="U8k-Na-2sL"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scy-1e-bqE">
+                                <rect key="frame" x="254" y="346.5" width="34" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="MkD-4F-Ede"/>
+                                    <constraint firstAttribute="height" constant="30" id="Rpx-pG-cfJ"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSaveLogButton:" destination="vZe-K9-V8c" eventType="touchUpInside" id="idy-kG-kPZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bxu-oM-7bw" firstAttribute="top" secondItem="9ag-eq-Sr8" secondAttribute="bottom" constant="16" id="1rw-Lg-eXQ"/>
+                            <constraint firstItem="9ag-eq-Sr8" firstAttribute="top" secondItem="5ew-eh-tIy" secondAttribute="bottom" constant="8" id="84O-gr-RgO"/>
+                            <constraint firstItem="42T-gO-Dtl" firstAttribute="trailing" secondItem="scy-1e-bqE" secondAttribute="trailing" constant="32" id="GhL-RL-J4O"/>
+                            <constraint firstItem="5ew-eh-tIy" firstAttribute="top" secondItem="42T-gO-Dtl" secondAttribute="top" constant="8" id="RAi-wq-5Am"/>
+                            <constraint firstItem="jXm-Xt-6bZ" firstAttribute="leading" secondItem="42T-gO-Dtl" secondAttribute="leading" id="UlU-ru-let"/>
+                            <constraint firstItem="jXm-Xt-6bZ" firstAttribute="top" secondItem="scy-1e-bqE" secondAttribute="bottom" constant="16" id="Xf8-Jx-Sxf"/>
+                            <constraint firstItem="jXm-Xt-6bZ" firstAttribute="bottom" secondItem="42T-gO-Dtl" secondAttribute="bottom" id="eeC-1c-u5R"/>
+                            <constraint firstItem="42T-gO-Dtl" firstAttribute="trailing" secondItem="9ag-eq-Sr8" secondAttribute="trailing" constant="16" id="ej6-Ix-cuW"/>
+                            <constraint firstItem="5ew-eh-tIy" firstAttribute="centerX" secondItem="daB-N7-XgW" secondAttribute="centerX" id="hlq-dx-Ax2"/>
+                            <constraint firstItem="jXm-Xt-6bZ" firstAttribute="trailing" secondItem="42T-gO-Dtl" secondAttribute="trailing" id="lG6-SF-001"/>
+                            <constraint firstItem="Bxu-oM-7bw" firstAttribute="centerX" secondItem="daB-N7-XgW" secondAttribute="centerX" id="rqq-QO-R0q"/>
+                            <constraint firstItem="9ag-eq-Sr8" firstAttribute="leading" secondItem="42T-gO-Dtl" secondAttribute="leading" constant="16" id="sDv-Ne-MSP"/>
+                            <constraint firstItem="jXm-Xt-6bZ" firstAttribute="top" secondItem="Bxu-oM-7bw" secondAttribute="bottom" constant="8" id="yOF-kl-zNf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="42T-gO-Dtl"/>
+                    </view>
+                    <connections>
+                        <outlet property="clockView" destination="Bxu-oM-7bw" id="W6l-fn-doq"/>
+                        <outlet property="descriptionLabel" destination="9ag-eq-Sr8" id="iWn-pj-eNb"/>
+                        <outlet property="saveLogButton" destination="scy-1e-bqE" id="E1M-nv-du1"/>
+                        <outlet property="startStopButton" destination="xW1-Sw-Shi" id="pNz-WZ-2tZ"/>
+                        <outlet property="tableView" destination="jXm-Xt-6bZ" id="oFK-8S-PEV"/>
+                        <outlet property="timeLabel" destination="aNx-rg-Hws" id="t2e-ck-chs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Uy-Pw-CSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1702.5" y="-81.338028169014081"/>
         </scene>
         <!--New Jira View Controller-->
         <scene sceneID="nuI-zb-hMl">

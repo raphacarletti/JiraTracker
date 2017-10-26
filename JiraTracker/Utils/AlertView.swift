@@ -16,4 +16,15 @@ extension UIViewController {
         alertController.addAction(alertAction)
         return alertController
     }
+    
+    func getAlertWithYesOrNo(title: String, message: String, handler: (() -> Void)?) -> UIAlertController {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (alertAction) in
+            handler?()
+        }
+        alertController.addAction(noAction)
+        alertController.addAction(yesAction)
+        return alertController
+    }
 }

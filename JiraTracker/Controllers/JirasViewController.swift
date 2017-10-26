@@ -8,16 +8,53 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
-class JirasViewController: UIViewController {
-    
+class JirasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    //MARK: - IBOutlets
     @IBOutlet var newJiraButton: UIButton!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var welcomeLabel: UILabel!
     
     //MARK: - Variables
+    var jiras = Jiras()
+    var currentUser : User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newJiraButton.imageView?.tintColor = Colors.grayLightColor
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        let user = Auth.auth().currentUser
+        Database.database().reference().child("users").child((user?.uid)!).observeSingleEvent(of: .value) { (snapshot) in
+            let data = snapshot.value as! NSDictionary
+            let name = data["name"] as! String
+            let email = data["email"] as! String
+            self.currentUser = User(email: email, uid: snapshot.key, name: name)
+            self.welcomeLabel.text = "Hi, \(self.currentUser.name!),  which Jira will we work together? :D"
+        }
+        
+        Database.database().reference().child("users").observe(.childAdded) { (snapshot) in
+            let uid = snapshot.key
+            let data = snapshot.value as! NSDictionary
+            let name = data["name"] as! String
+            let email = data["email"] as! String
+            let user = User(email: email, uid: uid, name: name)
+            Users.shared.users.append(user)
+        }
+        
+        Database.database().reference().child("jiras").observe(.childAdded) { (snapshot) in
+            let name = snapshot.key
+            let data = snapshot.value as! NSDictionary
+            if let description = data["description"] as? String {
+                let jira = Jira(name: name, description: description)
+                self.jiras.jiras.append(jira)
+            }
+            self.tableView.reloadData()
+            
+        }
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
@@ -41,4 +78,29 @@ class JirasViewController: UIViewController {
         try? Auth.auth().signOut()
         self.navigationController?.popViewController(animated: true)
     }
+    
+    //MARK: - Table View Data Source Functions
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.jiras.jiras.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "jiraCell", for: indexPath) as! JiraTableViewCell
+        cell.jiraName.text = jiras.jiras[indexPath.row].name
+        cell.jiraDescription.text = jiras.jiras[indexPath.row].description
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Application", bundle: nil)
+        let jiraLog = storyboard.instantiateViewController(withIdentifier: "jiraLogScreen") as! JiraLogViewController
+        jiraLog.currentUser = currentUser
+        jiraLog.jira = jiras.jiras[indexPath.row]
+        self.navigationController?.pushViewController(jiraLog, animated: true)
+    }
+    
 }

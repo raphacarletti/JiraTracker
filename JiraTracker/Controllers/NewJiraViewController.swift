@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class NewJiraViewController: UIViewController {
     @IBOutlet var newJiraView: NewJiraPopUp!
@@ -37,6 +38,12 @@ class NewJiraViewController: UIViewController {
 
 extension NewJiraViewController : NewJiraPopUpDelegate {
     func didTapSaveButton() {
+        if let jiraName = newJiraView.jiraNameTextField.text {
+            if let jiraDescription = newJiraView.jiraDescriptionTextField.text {
+                let jiraValue = ["description": jiraDescription]
+                Database.database().reference().child("jiras").child(jiraName).setValue(jiraValue)
+            }
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

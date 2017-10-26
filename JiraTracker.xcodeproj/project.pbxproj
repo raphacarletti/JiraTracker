@@ -10,6 +10,7 @@
 		2B7F125A126CCF1164CD994C /* Pods_JiraTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2600C0659DA36D42A018E7B /* Pods_JiraTracker.framework */; };
 		6D38F94A1F9E7E6400EFFEB5 /* CustomProgressButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D38F9491F9E7E6400EFFEB5 /* CustomProgressButton.xib */; };
 		6D38F94C1F9E801200EFFEB5 /* CustomProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D38F94B1F9E801200EFFEB5 /* CustomProgressButton.swift */; };
+		6D4E58391FA0E0A60001D60E /* JiraLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4E58381FA0E0A60001D60E /* JiraLogViewController.swift */; };
 		6DCDC3C41F9FAA3500959DC1 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCDC3C31F9FAA3500959DC1 /* RegistrationViewController.swift */; };
 		6DCDC3C61F9FBE4E00959DC1 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCDC3C51F9FBE4E00959DC1 /* AlertView.swift */; };
 		6DCDC3C81F9FC78E00959DC1 /* Application.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DCDC3C71F9FC78E00959DC1 /* Application.storyboard */; };
@@ -17,6 +18,10 @@
 		6DCDC3CD1F9FCE9E00959DC1 /* NewJiraPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DCDC3CC1F9FCE9E00959DC1 /* NewJiraPopUp.xib */; };
 		6DCDC3CF1F9FCF4200959DC1 /* NewJiraPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCDC3CE1F9FCF4200959DC1 /* NewJiraPopUp.swift */; };
 		6DCDC3D11F9FD87800959DC1 /* NewJiraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCDC3D01F9FD87800959DC1 /* NewJiraViewController.swift */; };
+		6DCE80991FA0FBD6006025F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCE80981FA0FBD6006025F2 /* User.swift */; };
+		6DCE809B1FA0FCB1006025F2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCE809A1FA0FCB1006025F2 /* Users.swift */; };
+		6DCE809E1FA111D2006025F2 /* LogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DCE809D1FA111D2006025F2 /* LogTableViewCell.xib */; };
+		6DCE80A01FA111DE006025F2 /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCE809F1FA111DE006025F2 /* LogTableViewCell.swift */; };
 		6DD85D961F9A737A00ADE8CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD85D951F9A737A00ADE8CC /* AppDelegate.swift */; };
 		6DD85D9E1F9A737A00ADE8CC /* JiraTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DD85D9C1F9A737A00ADE8CC /* JiraTracker.xcdatamodeld */; };
 		6DD85DA01F9A737A00ADE8CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DD85D9F1F9A737A00ADE8CC /* Assets.xcassets */; };
@@ -27,6 +32,11 @@
 		6DD85DB31F9A8A7300ADE8CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD85DB21F9A8A7300ADE8CC /* Constants.swift */; };
 		6DD85DB61F9A8CE800ADE8CC /* LoginTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DD85DB51F9A8CE800ADE8CC /* LoginTextField.xib */; };
 		6DD85DB81F9A8E5800ADE8CC /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD85DB71F9A8E5800ADE8CC /* LoginTextField.swift */; };
+		6DDA57FA1FA0C1D300CC07F8 /* Jira.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA57F91FA0C1D300CC07F8 /* Jira.swift */; };
+		6DDA57FC1FA0C1DE00CC07F8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA57FB1FA0C1DE00CC07F8 /* Log.swift */; };
+		6DDA57FF1FA0C30500CC07F8 /* Jiras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA57FE1FA0C30500CC07F8 /* Jiras.swift */; };
+		6DDA58021FA0C97800CC07F8 /* JiraTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DDA58011FA0C97800CC07F8 /* JiraTableViewCell.xib */; };
+		6DDA58041FA0C98600CC07F8 /* JiraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA58031FA0C98600CC07F8 /* JiraTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +44,7 @@
 		3F7DAB4ACEA705520F914CA5 /* Pods-JiraTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JiraTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JiraTracker/Pods-JiraTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		6D38F9491F9E7E6400EFFEB5 /* CustomProgressButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomProgressButton.xib; sourceTree = "<group>"; };
 		6D38F94B1F9E801200EFFEB5 /* CustomProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressButton.swift; sourceTree = "<group>"; };
+		6D4E58381FA0E0A60001D60E /* JiraLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraLogViewController.swift; sourceTree = "<group>"; };
 		6DCDC3C31F9FAA3500959DC1 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		6DCDC3C51F9FBE4E00959DC1 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		6DCDC3C71F9FC78E00959DC1 /* Application.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Application.storyboard; sourceTree = "<group>"; };
@@ -41,6 +52,10 @@
 		6DCDC3CC1F9FCE9E00959DC1 /* NewJiraPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewJiraPopUp.xib; sourceTree = "<group>"; };
 		6DCDC3CE1F9FCF4200959DC1 /* NewJiraPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJiraPopUp.swift; sourceTree = "<group>"; };
 		6DCDC3D01F9FD87800959DC1 /* NewJiraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJiraViewController.swift; sourceTree = "<group>"; };
+		6DCE80981FA0FBD6006025F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6DCE809A1FA0FCB1006025F2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		6DCE809D1FA111D2006025F2 /* LogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogTableViewCell.xib; sourceTree = "<group>"; };
+		6DCE809F1FA111DE006025F2 /* LogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
 		6DD85D921F9A737A00ADE8CC /* JiraTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiraTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DD85D951F9A737A00ADE8CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DD85D9D1F9A737A00ADE8CC /* JiraTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JiraTracker.xcdatamodel; sourceTree = "<group>"; };
@@ -53,6 +68,11 @@
 		6DD85DB21F9A8A7300ADE8CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6DD85DB51F9A8CE800ADE8CC /* LoginTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTextField.xib; sourceTree = "<group>"; };
 		6DD85DB71F9A8E5800ADE8CC /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		6DDA57F91FA0C1D300CC07F8 /* Jira.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jira.swift; sourceTree = "<group>"; };
+		6DDA57FB1FA0C1DE00CC07F8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		6DDA57FE1FA0C30500CC07F8 /* Jiras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jiras.swift; sourceTree = "<group>"; };
+		6DDA58011FA0C97800CC07F8 /* JiraTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JiraTableViewCell.xib; sourceTree = "<group>"; };
+		6DDA58031FA0C98600CC07F8 /* JiraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraTableViewCell.swift; sourceTree = "<group>"; };
 		A2600C0659DA36D42A018E7B /* Pods_JiraTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JiraTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +106,15 @@
 			path = NewJiraPopUp;
 			sourceTree = "<group>";
 		};
+		6DCE809C1FA111BE006025F2 /* LogTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6DCE809D1FA111D2006025F2 /* LogTableViewCell.xib */,
+				6DCE809F1FA111DE006025F2 /* LogTableViewCell.swift */,
+			);
+			path = LogTableViewCell;
+			sourceTree = "<group>";
+		};
 		6DD85D891F9A737A00ADE8CC = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +136,7 @@
 		6DD85D941F9A737A00ADE8CC /* JiraTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6DDA57F81FA0C1C100CC07F8 /* Models */,
 				6DD85D951F9A737A00ADE8CC /* AppDelegate.swift */,
 				6DD85D9F1F9A737A00ADE8CC /* Assets.xcassets */,
 				6DD85DB01F9A883000ADE8CC /* GoogleService-Info.plist */,
@@ -123,11 +153,42 @@
 		6DD85DB41F9A8CCF00ADE8CC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6DCE809C1FA111BE006025F2 /* LogTableViewCell */,
+				6DDA58001FA0C94100CC07F8 /* JiraTableViewCell */,
 				6DCDC3CB1F9FCE7E00959DC1 /* NewJiraPopUp */,
 				F48DE17F1F9E86F1005E3727 /* CustomProgressButton */,
 				F48DE17E1F9E86E6005E3727 /* LoginTextField */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		6DDA57F81FA0C1C100CC07F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6DDA57FD1FA0C2F900CC07F8 /* Collections */,
+				6DDA57F91FA0C1D300CC07F8 /* Jira.swift */,
+				6DDA57FB1FA0C1DE00CC07F8 /* Log.swift */,
+				6DCE80981FA0FBD6006025F2 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6DDA57FD1FA0C2F900CC07F8 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				6DDA57FE1FA0C30500CC07F8 /* Jiras.swift */,
+				6DCE809A1FA0FCB1006025F2 /* Users.swift */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+		6DDA58001FA0C94100CC07F8 /* JiraTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6DDA58011FA0C97800CC07F8 /* JiraTableViewCell.xib */,
+				6DDA58031FA0C98600CC07F8 /* JiraTableViewCell.swift */,
+			);
+			path = JiraTableViewCell;
 			sourceTree = "<group>";
 		};
 		7880C2AC882FE806DD5BA0E9 /* Frameworks */ = {
@@ -163,6 +224,7 @@
 				6DCDC3C31F9FAA3500959DC1 /* RegistrationViewController.swift */,
 				6DCDC3C91F9FCADB00959DC1 /* JirasViewController.swift */,
 				6DCDC3D01F9FD87800959DC1 /* NewJiraViewController.swift */,
+				6D4E58381FA0E0A60001D60E /* JiraLogViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,6 +284,11 @@
 					6DD85D911F9A737A00ADE8CC = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -254,6 +321,8 @@
 				6DCDC3C81F9FC78E00959DC1 /* Application.storyboard in Resources */,
 				6DD85DA01F9A737A00ADE8CC /* Assets.xcassets in Resources */,
 				6DCDC3CD1F9FCE9E00959DC1 /* NewJiraPopUp.xib in Resources */,
+				6DCE809E1FA111D2006025F2 /* LogTableViewCell.xib in Resources */,
+				6DDA58021FA0C97800CC07F8 /* JiraTableViewCell.xib in Resources */,
 				6D38F94A1F9E7E6400EFFEB5 /* CustomProgressButton.xib in Resources */,
 				6DD85DB61F9A8CE800ADE8CC /* LoginTextField.xib in Resources */,
 			);
@@ -326,17 +395,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DDA57FC1FA0C1DE00CC07F8 /* Log.swift in Sources */,
+				6DCE80A01FA111DE006025F2 /* LogTableViewCell.swift in Sources */,
+				6DDA57FF1FA0C30500CC07F8 /* Jiras.swift in Sources */,
 				6D38F94C1F9E801200EFFEB5 /* CustomProgressButton.swift in Sources */,
 				6DCDC3D11F9FD87800959DC1 /* NewJiraViewController.swift in Sources */,
 				6DD85DB31F9A8A7300ADE8CC /* Constants.swift in Sources */,
 				6DD85DAE1F9A854800ADE8CC /* LoginViewController.swift in Sources */,
 				6DD85D9E1F9A737A00ADE8CC /* JiraTracker.xcdatamodeld in Sources */,
+				6DCE80991FA0FBD6006025F2 /* User.swift in Sources */,
 				6DCDC3C41F9FAA3500959DC1 /* RegistrationViewController.swift in Sources */,
 				6DCDC3CA1F9FCADB00959DC1 /* JirasViewController.swift in Sources */,
+				6DCE809B1FA0FCB1006025F2 /* Users.swift in Sources */,
+				6DDA57FA1FA0C1D300CC07F8 /* Jira.swift in Sources */,
 				6DCDC3C61F9FBE4E00959DC1 /* AlertView.swift in Sources */,
 				6DD85DB81F9A8E5800ADE8CC /* LoginTextField.swift in Sources */,
 				6DD85D961F9A737A00ADE8CC /* AppDelegate.swift in Sources */,
+				6D4E58391FA0E0A60001D60E /* JiraLogViewController.swift in Sources */,
 				6DCDC3CF1F9FCF4200959DC1 /* NewJiraPopUp.swift in Sources */,
+				6DDA58041FA0C98600CC07F8 /* JiraTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +463,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 76KPLQBURE;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -402,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -443,6 +521,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 76KPLQBURE;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -453,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

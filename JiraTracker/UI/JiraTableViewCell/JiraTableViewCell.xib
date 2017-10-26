@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PingFang.ttc">
+            <string>PingFangTC-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JiraTableViewCell" customModule="JiraTracker" customModuleProvider="target">
+            <connections>
+                <outlet property="jiraDescription" destination="by4-Ki-ib7" id="K4S-Ws-VHM"/>
+                <outlet property="jiraName" destination="47r-fP-axm" id="i4z-TV-KYo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="EuL-jP-Vzc">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EuL-jP-Vzc" id="T8j-J9-osH">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CMA-10444" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47r-fP-axm">
+                        <rect key="frame" x="16" y="12" width="352" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="352" id="NTn-bk-bJH"/>
+                            <constraint firstAttribute="height" constant="21" id="swa-IX-dLJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Esse jira faz isso, isso, issos, soisiojsijsiojsoisosisiojsoijssojisuaygyuagauygauygauygaayugaya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="by4-Ki-ib7">
+                        <rect key="frame" x="16" y="41" width="352" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="EdZ-Av-d4n"/>
+                            <constraint firstAttribute="width" constant="352" id="W6C-6s-NBB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="47r-fP-axm" firstAttribute="top" secondItem="T8j-J9-osH" secondAttribute="topMargin" constant="4" id="0eR-3U-89o"/>
+                    <constraint firstAttribute="trailing" secondItem="by4-Ki-ib7" secondAttribute="trailing" constant="8" id="3gU-3b-cd4"/>
+                    <constraint firstItem="by4-Ki-ib7" firstAttribute="leading" secondItem="T8j-J9-osH" secondAttribute="leadingMargin" constant="8" id="3qL-IG-sxj"/>
+                    <constraint firstAttribute="bottom" secondItem="by4-Ki-ib7" secondAttribute="bottom" constant="8" id="VWg-Ii-ChT"/>
+                    <constraint firstItem="by4-Ki-ib7" firstAttribute="top" secondItem="47r-fP-axm" secondAttribute="bottom" constant="8" id="a29-uZ-qdN"/>
+                    <constraint firstAttribute="trailing" secondItem="47r-fP-axm" secondAttribute="trailing" constant="8" id="b9u-II-Yhr"/>
+                    <constraint firstItem="47r-fP-axm" firstAttribute="leading" secondItem="T8j-J9-osH" secondAttribute="leadingMargin" constant="8" id="kqx-R0-izD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-63.5" y="-98.5"/>
+        </tableViewCell>
+    </objects>
+</document>
